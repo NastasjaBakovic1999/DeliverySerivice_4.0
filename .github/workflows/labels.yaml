@@ -23,14 +23,7 @@ jobs:
           fi
 
       - name: Label pull request
-        uses: peter-evans/labeler@v5.1.0
+        uses: marvinpinto/action-automatic-label@v3.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          rules: |
-            - any_of:
-                - name: 'Test'
-                  if: ${{ steps.delivery_changes.outputs.changes == 'true' }}
-                - name: 'Fixbug'
-                  if: contains(github.event.head_commit.message, 'bug') && endsWith(github.event.pull_request.head.repo.name, 'Domain')
-                - name: 'Feature'
-                  if: !contains(github.event.head_commit.message, 'bug') && endsWith(github.event.pull_request.head.repo.name, 'Domain')
+          configuration-path: .github/workflows/labeler.yml
