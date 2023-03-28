@@ -1,0 +1,36 @@
+name: Label Pull Request
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+jobs:
+  label_pull_request:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get changes in DeliveryServiceAppTest project
+        id: delivery_changes
+        run: |
+          if git diff --name-only HEAD^..HEAD | grep -q "DeliveryServiceAppTest"; then
+            echo "::set-output name=changes::true"
+          else
+            echo "::set-output name=changes::false"
+          fi
+
+      - name: Label pull request
+        uses: peter-evans/labeler@v5.1.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          rules: |
+            - any_of:
+                - name: 'Test'
+                  if: ${{ steps.delivery_changes.outputs.changes == 'true' }}
+                - name: 'Fixbug'
+                  if: contains(github.event.head_commit.message, 'bug') && endsWith(github.event.pull_request.head.repo.name, 'Domain')
+                - name: 'Feature'
+                  if: !contains(github.event.head_commit.message, 'bug') && endsWith(github.event.pull_request.head.repo.name, 'Domain')
