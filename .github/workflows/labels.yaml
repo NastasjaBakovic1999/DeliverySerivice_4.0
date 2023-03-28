@@ -1,5 +1,4 @@
 name: Label Pull Request
-
 on:
   push:
     branches:
@@ -22,8 +21,31 @@ jobs:
             echo "::set-output name=changes::false"
           fi
 
-      - name: Label pull request
-        uses: marvinpinto/action-automatic-label@v3.0.0
+      - name: Apply labels to pull request
+        uses: actions/github-script@v5
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          configuration-path: .github/workflows/labeler.yml
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request
+            const changes = '${{ steps.delivery_changes.outputs.changes }}' == 'true'
+
+            if (changes) {
+              await github.issues.addLabels({
+                issue_number: pr.number,
+                labels: ['Test']
+              })
+            } else {
+              const projectName = pr.head.repo.name.split('-').pop()
+
+              if (/\bbug\b/i.test(pr.head_commit.message)) {
+                await github.issues.addLabels({
+                  issue_number: pr.number,
+                  labels: [`Fixbug-${projectName}`]
+                })
+              } else {
+                await github.issues.addLabels({
+                  issue_number: pr.number,
+                  labels: [`Feature-${projectName}`]
+                })
+              }
+            }
