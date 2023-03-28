@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build with .NET Core
+      run: dotnet build --configuration Release
+
+    - name: Run xUnit tests with .NET Core
+      run: dotnet test --configuration Release --logger trx --filter "TestCategory=Unit"
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: Test Results
+        path: '**/*.trx'
