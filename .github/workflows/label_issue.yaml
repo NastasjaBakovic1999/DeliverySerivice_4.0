@@ -6,16 +6,13 @@ on:
     types: [opened]
 jobs:
   add-label:
-    name: Add Label
     runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: christianvuerings/add-labels@v1
+    - name: Add labels
+        uses: KeisukeYamashita/attach-labels@v1
         with:
-          labels: ${{ steps.first_issue.outputs.labels }}
-          issue-number: ${{ steps.first_issue.outputs.issue_number }}
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Add comment to first issue
+          labels: hello,bye
+          token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Add comment to first issue
         if: steps.first_issue.outputs.is_first_interaction == 'true'
         uses: actions/github-script@v4
         with:
