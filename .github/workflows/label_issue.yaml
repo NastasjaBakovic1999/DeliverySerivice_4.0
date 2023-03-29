@@ -5,14 +5,37 @@ on:
   issues:
     types: [opened]
 jobs:
-  add-label:
-    runs-on: windows-latest
-    - name: Add labels
-        uses: KeisukeYamashita/attach-labels@v1
+  first_issue:
+    name: First Issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Issue Info
+        uses: actions/github-script@v4
+        id: first_issue
         with:
-          labels: hello,bye
-          token: "${{ secrets.GITHUB_TOKEN }}"
-    - name: Add comment to issue
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const payload = context.payload;
+            const issue = payload.issue || payload.pull_request;
+            const issue_number = issue.number;
+            const repo = context.repo.repo;
+            const owner = context.repo.owner;
+            const is_first_interaction = issue.comments === 0 && issue.state === 'open';
+            const labels = is_first_interaction ? ['first issue'] : [];
+            return {issue_number, repo, owner, is_first_interaction, labels}
+  add-label:
+    name: Add Label
+    runs-on: ubuntu-latest
+    needs: first_issue
+    steps:
+      - uses: actions/checkout@v2
+      - uses: christianvuerings/add-labels@v1
+        with:
+          labels: ${{ steps.first_issue.outputs.labels }}
+          issue-number: ${{ steps.first_issue.outputs.issue_number }}
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Add comment to first issue
+        if: steps.first_issue.outputs.is_first_interaction == 'true'
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
