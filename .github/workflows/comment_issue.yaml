@@ -10,7 +10,7 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-number: 1
+          issue-number: 4
           body: |
             Thank you for creating an issue, we will resolve it as soon as possible. 
             Best Regards!
