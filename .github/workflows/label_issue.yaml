@@ -1,6 +1,6 @@
 name: Label First Issue
 on:
-  pull-request:
+  pull_request:
     branches: [master]
   issues:
     types: [opened]
