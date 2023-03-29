@@ -1,18 +1,16 @@
 name: Label First Issue
 on:
+  pull-request:
+    branches: [master]
   issues:
     types: [opened]
 jobs:
-  label_first_issue:
-    runs-on: ubuntu-latest
+  add-label:
+    name: Add Label
+    runs-on: windows-latest
     steps:
-      - uses: actions/first-interaction@v1
-        id: first_issue
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          label: "first issue"
-      - name: Add label to issue
-        uses: peter-evans/add-labels@v2
+      - uses: actions/checkout@v2
+      - uses: christianvuerings/add-labels@v1
         with:
           labels: ${{ steps.first_issue.outputs.labels }}
           issue-number: ${{ steps.first_issue.outputs.issue_number }}
