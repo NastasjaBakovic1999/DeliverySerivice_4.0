@@ -12,8 +12,7 @@ jobs:
         with:
           labels: hello,bye
           token: "${{ secrets.GITHUB_TOKEN }}"
-    - name: Add comment to first issue
-        if: steps.first_issue.outputs.is_first_interaction == 'true'
+    - name: Add comment to issue
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
