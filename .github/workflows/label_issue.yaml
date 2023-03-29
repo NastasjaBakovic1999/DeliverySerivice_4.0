@@ -1,0 +1,31 @@
+name: Label First Issue
+on:
+  issues:
+    types: [opened]
+jobs:
+  label_first_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        id: first_issue
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "first issue"
+      - name: Add label to issue
+        uses: peter-evans/add-labels@v2
+        with:
+          labels: ${{ steps.first_issue.outputs.labels }}
+          issue-number: ${{ steps.first_issue.outputs.issue_number }}
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Add comment to first issue
+        if: steps.first_issue.outputs.is_first_interaction == 'true'
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: 'Thank you for informing us!'
+            })
