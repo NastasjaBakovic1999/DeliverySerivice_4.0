@@ -1,13 +1,11 @@
 name: Label First Issue
 on:
-  pull_request:
-    branches: [master]
   issues:
     types: [opened]
 jobs:
   first_issue:
     name: First Issue
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Get Issue Info
         uses: actions/github-script@v4
@@ -25,7 +23,7 @@ jobs:
             return {issue_number, repo, owner, is_first_interaction, labels}
   add-label:
     name: Add Label
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: first_issue
     steps:
       - uses: actions/checkout@v2
