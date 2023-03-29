@@ -1,13 +1,30 @@
 name: Label First Issue
 on:
-  pull-request:
-    branches: [master]
   issues:
     types: [opened]
 jobs:
+  first_issue:
+    name: First Issue
+    runs-on: windows-latest
+    steps:
+      - name: Get Issue Info
+        uses: actions/github-script@v4
+        id: first_issue
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const payload = context.payload;
+            const issue = payload.issue || payload.pull_request;
+            const issue_number = issue.number;
+            const repo = context.repo.repo;
+            const owner = context.repo.owner;
+            const is_first_interaction = issue.comments === 0 && issue.state === 'open';
+            const labels = is_first_interaction ? ['first issue'] : [];
+            return {issue_number, repo, owner, is_first_interaction, labels}
   add-label:
     name: Add Label
     runs-on: windows-latest
+    needs: first_issue
     steps:
       - uses: actions/checkout@v2
       - uses: christianvuerings/add-labels@v1
