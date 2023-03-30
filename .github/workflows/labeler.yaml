@@ -1,0 +1,14 @@
+'@test':
+- DeliveryServiceAppTests/*
+
+services:
+- DeliveryServiceServices/*
+
+core:
+- any: ['DeliveryServiceData/*', 'DeliveryServiceDomain/*']
+
+ui:
+- DeliveryServiceApp/Views/*
+
+'@app':
+- - any: ['*', 'DeliveryServiceAppTests/*']
