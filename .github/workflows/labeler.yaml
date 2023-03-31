@@ -11,4 +11,4 @@ ui:
 - DeliveryServiceApp/Views/*
 
 '@app':
-- - any: ['*', 'DeliveryServiceAppTests/*']
+- - any: ['*', '!DeliveryServiceAppTests/*']
