@@ -11,4 +11,4 @@ jobs:
       pull-requests: write
     runs-on: windows-latest
     steps:
-    - uses: actions/labeler
+    - uses: ./.github/workflows/labeler.yaml
