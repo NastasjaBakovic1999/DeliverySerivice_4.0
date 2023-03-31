@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add labels
-        uses: "actions/labeler@v5"
+        uses: actions/labeler@v4.0.3
         with:
           configuration-path: .github/workflows/labeler.yaml
