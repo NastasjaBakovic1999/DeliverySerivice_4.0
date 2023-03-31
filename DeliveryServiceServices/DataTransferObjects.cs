@@ -27,4 +27,6 @@
 
     public record ShipmentStatusStatisticDto(string StatusName, int NumberOfShipments);
 
+    //test
+
 }
