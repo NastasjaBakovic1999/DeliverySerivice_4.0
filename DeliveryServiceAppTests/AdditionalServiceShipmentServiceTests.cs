@@ -71,6 +71,7 @@ namespace DeliveryServiceAppTests
         [MemberData(nameof(AdditionalServiceShipmentData))]
         public void TestServiceAdditionalServiceShipmentAddInvalidId(AdditionalServiceShipment newAdditionalServiceShipment)
         {
+            // test laberer
             var service = new ServiceAdditionalServiceShipment(unitOfWork.Object, mapper);
 
             Assert.Throws<ArgumentOutOfRangeException>(() => service.Add(mapper.Map<AdditionalServiceShipmentDto>(newAdditionalServiceShipment)));
