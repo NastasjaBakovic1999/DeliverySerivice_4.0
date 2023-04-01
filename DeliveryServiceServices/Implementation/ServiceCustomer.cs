@@ -59,5 +59,3 @@ namespace DeliveryServiceApp.Services.Implementation
         }
     }
 }
-
-
