@@ -8,6 +8,7 @@ namespace DeliveryServiceDomain
 {
     public class Shipment
     {
+        //test
         public int ShipmentId { get; set; }
         public string ShipmentCode { get; set; }
         public int ShipmentWeightId { get; set; }
