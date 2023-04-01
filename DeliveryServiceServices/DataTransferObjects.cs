@@ -26,7 +26,4 @@
     public record TimelineDto(string StatusName, DateTime StatusTime);
 
     public record ShipmentStatusStatisticDto(string StatusName, int NumberOfShipments);
-
-    //test
-
 }
