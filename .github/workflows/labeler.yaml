@@ -5,10 +5,10 @@ services:
 - DeliveryServiceServices/**/*
 
 core:
-- any: ['DeliveryServiceData/*', 'DeliveryServiceDomain/*']
+- any: ['DeliveryServiceData/**/*', 'DeliveryServiceDomain/**/*']
 
 ui:
-- DeliveryServiceApp/Views/*
+- DeliveryServiceApp/Views/**/*
 
 '@app':
 - any: ['*']
