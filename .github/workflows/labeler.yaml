@@ -2,12 +2,14 @@
 - DeliveryServiceAppTests/*
 
 services:
+- DeliveryServiceServices/*
 - DeliveryServiceServices/**/*
 
 core:
 - any: ['DeliveryServiceData/**/*', 'DeliveryServiceDomain/**/*']
 
 ui:
+- DeliveryServiceApp/Views/*
 - DeliveryServiceApp/Views/**/*
 
 '@app':
