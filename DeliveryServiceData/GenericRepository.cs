@@ -25,6 +25,5 @@ namespace DeliveryServiceData
         {
             return Context.Set<T>().SingleOrDefault(expression);
         }
-
     }
 }
