@@ -10,7 +10,5 @@ namespace DeliveryServiceData
     public interface IRepositoryCustomer:IRepository<Customer>
     {
         public void Edit(Customer customer);
-
-        // test
     }
 }
