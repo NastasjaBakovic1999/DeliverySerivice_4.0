@@ -9,6 +9,5 @@ namespace DeliveryServiceData
 {
     public interface IRepositoryAdditionalService : IRepository<AdditionalService>
     {
-        // test core
     }
 }
