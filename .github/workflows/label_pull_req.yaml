@@ -5,7 +5,7 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  comment_pull_req:
+  add-pull-req-label:
     permissions:
       contents: read
       pull-requests: write
