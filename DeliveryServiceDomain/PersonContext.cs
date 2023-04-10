@@ -36,7 +36,6 @@ namespace DeliveryServiceDomain
 
         private void SeedData(ModelBuilder modelBuilder)
         {
-
             PasswordHasher<Person> hasher = new PasswordHasher<Person>(
                 Options.Create(new PasswordHasherOptions()
                 {
