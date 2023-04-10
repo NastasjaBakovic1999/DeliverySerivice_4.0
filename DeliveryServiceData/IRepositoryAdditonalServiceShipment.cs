@@ -11,6 +11,5 @@ namespace DeliveryServiceData
     public interface IRepositoryAdditionalServiceShipment : IRepository<AdditionalServiceShipment>
     {
         public void Add(AdditionalServiceShipment additionalServiceShipment);
-        
     }
 }
