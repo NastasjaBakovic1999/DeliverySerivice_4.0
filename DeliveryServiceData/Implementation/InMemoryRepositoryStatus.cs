@@ -14,7 +14,6 @@ namespace DeliveryServiceData.Implementation
 
         public InMemoryRepositoryStatus()
         {
-
         }
 
         public Status FindOneByExpression(Expression<Func<Status, bool>> expression)
