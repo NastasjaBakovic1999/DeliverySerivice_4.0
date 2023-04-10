@@ -15,6 +15,7 @@ namespace DeliveryServiceAppTests
 {
     public class DelivererServiceTests
     {
+
         Mock<IPersonUnitOfWork> unitOfWork = Mocks.GetMockPersonUnitOfWork();
         IMapper mapper = Mocks.GetMockAutoMapper();
 
