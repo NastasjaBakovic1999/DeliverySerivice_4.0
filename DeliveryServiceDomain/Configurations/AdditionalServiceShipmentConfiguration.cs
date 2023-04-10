@@ -22,5 +22,6 @@ namespace DeliveryServiceDomain.Configurations
                 .HasColumnName("ShipmentId")
                 .IsRequired();
         }
+
     }
 }
