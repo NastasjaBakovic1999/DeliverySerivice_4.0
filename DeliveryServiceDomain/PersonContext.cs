@@ -17,7 +17,6 @@ namespace DeliveryServiceDomain
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Deliverer> Deliverers { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=Delivery_Service_Database;");
