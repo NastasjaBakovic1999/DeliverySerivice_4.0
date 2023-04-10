@@ -73,7 +73,6 @@ namespace DeliveryServiceDomain
 
         private static void Seed(ModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Status>().HasData(
                 new Status { StatusId = 1, StatusName = "Scheduled" },
                 new Status { StatusId = 2, StatusName = "On the packaging" },
