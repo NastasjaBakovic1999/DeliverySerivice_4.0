@@ -16,7 +16,6 @@ namespace DeliveryServiceApp.Filters
                 {
                     context.HttpContext.Response.Redirect("/Shipment/AllShipments");
                     return;
-
                 }
             }
         }
