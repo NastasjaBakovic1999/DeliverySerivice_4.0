@@ -9,4 +9,5 @@ jobs:
     steps:
     - uses: github/issue-labeler@v2.0
       with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
         configuration-path:  .github/workflows/issue-labeler.yaml
