@@ -1,0 +1,18 @@
+critical:
+    - '(critical|urgent)'
+
+bug:
+    - '(problem|bug|error|crash)'
+
+performance:
+    - '(slow|speed|speed up|lag|lagging)'
+
+feature-request:
+    - '(request|enhancement|feature|proposal|suggest)' 
+
+security:
+    - '(security|vulnerability|exploit|breach|threat|attack|secure|authentication|authorization|encryption)'
+
+documentation:
+    - '(documentation|docs|guide|tutorial|readme|user manual|API documentation|documentation update|doc improvement|documentation enhancement)'
+
