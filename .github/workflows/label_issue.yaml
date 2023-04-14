@@ -5,14 +5,12 @@ on:
 
 jobs:
   add-issue-label:
-    permissions:
-      contents: read
-      pull-requests: write
+    name: Issue Labeler
     runs-on: widnows-latest
     steps:
-    - name: RegEx Issue Title Labeler
-      uses: tycrek-archive/issue-labeler@v2.2
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        configuration-path:  .github/workflows/issue-labeler.yaml
-        enable-versioned-regex: 0
+      - name: RegEx Issue Title Labeler
+        uses: tycrek-archive/issue-labeler@v2.2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path:  .github/workflows/issue-labeler.yaml
+          enable-versioned-regex: 0
