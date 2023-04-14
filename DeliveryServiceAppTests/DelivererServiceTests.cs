@@ -25,6 +25,7 @@ namespace DeliveryServiceAppTests
             var result = service.FindByID(1);
             var resultDeliverer = Assert.IsType<DelivererDto>(result);
             var expected = mapper.Map<DelivererDto>(unitOfWork.Object.Deliverer.FindOneByExpression(x => x.Id == 1));
+
             Assert.Equal(expected.Id, resultDeliverer.Id);
         }
 
