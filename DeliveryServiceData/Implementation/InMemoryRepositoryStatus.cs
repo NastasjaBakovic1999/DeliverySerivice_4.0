@@ -25,7 +25,6 @@ namespace DeliveryServiceData.Implementation
         {
             return statuses;
         }
-
     }
 }
 

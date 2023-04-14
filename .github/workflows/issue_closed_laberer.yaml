@@ -7,7 +7,7 @@ on:
 
 jobs:
   run:
-    name: "Test"
+    name: "PR close - Update issues"
     runs-on: windows-latest
     steps:
       - name: Update Labels
