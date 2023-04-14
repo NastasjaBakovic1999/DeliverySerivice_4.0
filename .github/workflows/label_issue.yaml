@@ -6,7 +6,7 @@ on:
 jobs:
   add-issue-label:
     name: Issue Labeler
-    runs-on: widnows-latest
+    runs-on: windows-latest
     steps:
       - name: RegEx Issue Title Labeler
         uses: tycrek-archive/issue-labeler@v2.2
