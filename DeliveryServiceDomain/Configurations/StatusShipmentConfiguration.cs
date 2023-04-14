@@ -27,6 +27,7 @@ namespace DeliveryServiceDomain.Configurations
                 .HasColumnType("datetime")
                 .IsRequired()
                 .HasDefaultValueSql("(getdate())");
+
         }
     }
 }
