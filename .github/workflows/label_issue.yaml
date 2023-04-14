@@ -10,9 +10,6 @@ jobs:
       pull-requests: write
     runs-on: widnows-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      
     - name: RegEx Issue Title Labeler
       uses: tycrek-archive/issue-labeler@v2.2
       with:
