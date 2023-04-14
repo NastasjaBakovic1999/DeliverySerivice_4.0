@@ -14,29 +14,32 @@ jobs:
         uses: RebeccaStevens/issue-closed-labeler-action@v1.0.1
         with:
           rules: '[
-            {
-              condition: [
-                "some",
-                ["critical", "bug"]
-              ],
-              add: "fixed" 
-            },
-            {
-              condition: "performance",
-              add: "improved" 
-            },
-            {
-              condition: "feature-request",
-              add: "feature",
-              remove: "feature-request" 
-            },
-            {
-              condition: "security",
-              add: "security-feature",
-              remove: "security" 
-            },
-            {
-              condition: "documentation",
-              add: "added"
-            },
-          ]'
+                    {
+                        "condition":[
+                          "some",
+                          [
+                              "critical",
+                              "bug"
+                          ]
+                        ],
+                        "add":"fixed"
+                    },
+                    {
+                        "condition":"performance",
+                        "add":"improved"
+                    },
+                    {
+                        "condition":"feature-request",
+                        "add":"feature",
+                        "remove":"feature-request"
+                    },
+                    {
+                        "condition":"security",
+                        "add":"security-feature",
+                        "remove":"security"
+                    },
+                    {
+                        "condition":"documentation",
+                        "add":"added"
+                    }
+                  ]'
