@@ -3,7 +3,7 @@ name: PR close - Update issues
 on:
   pull_request:
     types:
-      - closed, merged
+      - closed
 
 jobs:
   run:
