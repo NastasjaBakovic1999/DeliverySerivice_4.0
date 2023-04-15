@@ -1,7 +1,7 @@
 name: PR close - Update issues
 
 on:
-  pull_request:
+  issues:
     types:
       - closed
 jobs:
