@@ -5,5 +5,6 @@ namespace DeliveryServiceApp.Services.Interfaces
 {
     public interface IServiceDeliverer : IService<DelivererDto>
     {
+
     }
 }
