@@ -1,14 +1,14 @@
 name: PR close - Update issues
 
 on:
-  issues:
-    types:
-      - closed
+  pull_request:
+    types: [closed, merged]
 
 jobs:
   run:
     name: "PR close - Update issues"
     runs-on: windows-latest
+    if: ${{ github.event.pull_request.merged == true }}
     steps:
       - name: Update Labels
         uses: RebeccaStevens/issue-closed-labeler-action@v1.0.1
