@@ -7,7 +7,6 @@ namespace DeliveryServiceApp.Services.Interfaces
 {
     public interface IServiceAddionalServiceShipment : IService<AdditionalServiceShipmentDto>
     {
-        //test
         public void Add(AdditionalServiceShipmentDto additionalServiceShipment);
     }
 }
