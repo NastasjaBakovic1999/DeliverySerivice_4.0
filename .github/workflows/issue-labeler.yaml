@@ -1,18 +1,18 @@
 critical:
-    - '(critical|urgent)'
+    - '([cC]ritical]|[uU]rgent)'
 
 bug:
-    - '(problem|bug|error|crash)'
+    - '([pP]roblem|[bB]ug|[eE]rror|[cC]rash)'
 
 performance:
-    - '(slow|speed|speed up|lag|lagging)'
+    - '([sS]low|[sS]peed|[sS]peed [uU]p|[lL]ag|[lL]agging)'
 
 feature-request:
-    - '(request|enhancement|feature|proposal|suggest)' 
+    - '([rR]equest|[eE]nhancement|[fF]eature|[pP]roposal|[sS]uggest)' 
 
 security:
-    - '(security|vulnerability|exploit|breach|threat|attack|secure|authentication|authorization|encryption)'
+    - '([sS]ecurity|[vV]ulnerability|[eE]xploit|[bB]reach|[tT]hreat|[aA]ttack|[sS]ecure|[aA]uthentication|[aA]uthorization|[eE]ncryption)'
 
 documentation:
-    - '(documentation|docs|guide|tutorial|readme|user manual|API documentation|documentation update|doc improvement|documentation enhancement)'
+    - '(\b[dD]oc\w*|[gG]uide|[tT]utorial|[rR]eadme|[uU]ser manual)'
 
