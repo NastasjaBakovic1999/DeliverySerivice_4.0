@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: RegEx Issue Title Labeler
-        uses: tycrek-archive/issue-labeler@latest
+        uses: tycrek-archive/issue-labeler@v3.1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path:  .github/workflows/issue-labeler.yaml

@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Update Labels
-        uses: RebeccaStevens/issue-closed-labeler-action@latest
+        uses: RebeccaStevens/issue-closed-labeler-action@v1.0.1
         with:
           rules: '[
                     {
