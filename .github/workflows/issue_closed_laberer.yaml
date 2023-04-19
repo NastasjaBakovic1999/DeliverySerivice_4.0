@@ -1,9 +1,10 @@
 name: PR close - Update issues
 
 on:
-  issues:
+  pull_request:
     types:
       - closed
+
 jobs:
   run:
     name: "PR close - Update issues"
