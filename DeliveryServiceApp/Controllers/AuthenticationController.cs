@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -48,27 +49,34 @@ namespace DeliveryServiceApp.Controllers
                 return View();
             }
 
-            var result = await userManager.CreateAsync(customer, model.Password);
-
-            if (result.Succeeded)
+            try
             {
-                var currentUser = await userManager.FindByNameAsync(customer.UserName);
+                var result = await userManager.CreateAsync(customer, model.Password);
 
-                var roleresult = await userManager.AddToRoleAsync(currentUser, "User");
+                if (result.Succeeded)
+                {
+                    var currentUser = await userManager.FindByNameAsync(customer.UserName);
 
-                return RedirectToAction("Login", "Authentication");
+                    var roleresult = await userManager.AddToRoleAsync(currentUser, "User");
+
+                    return RedirectToAction("Login", "Authentication");
+                }
+                else
+                {
+                    if (result.Errors.Any(e => e.Code.Contains("DuplicateUserName")))
+                    {
+                        ModelState.AddModelError("Username", result.Errors.FirstOrDefault(e => e.Code == "DuplicateUserName")?.Description);
+                    }
+                    if (result.Errors.Any(e => e.Code.Contains("Password")))
+                    {
+                        ModelState.AddModelError("Password", result.Errors.FirstOrDefault(e => e.Code.Contains("Password"))?.Description);
+                    }
+                    return View();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                if(result.Errors.Any(e => e.Code.Contains("DuplicateUserName")))
-                {
-                    ModelState.AddModelError("Username", result.Errors.FirstOrDefault(e => e.Code == "DuplicateUserName")?.Description);
-                }
-                if (result.Errors.Any(e => e.Code.Contains("Password")))
-                {
-                    ModelState.AddModelError("Password", result.Errors.FirstOrDefault(e => e.Code.Contains("Password"))?.Description);
-                }
-                return View();
+                return RedirectToAction("Error", "Home", new { ex.Message });
             }
         }
         #endregion
@@ -83,29 +91,35 @@ namespace DeliveryServiceApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromForm] LoginViewModel model)
         {
-            var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
-            
-
-            if (result.Succeeded)
+            try
             {
-                var user = await userManager.FindByNameAsync(model.Username);
-                var roles = await userManager.GetRolesAsync(user);
+                var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, false, false);
 
-                if (roles.Contains("Deliverer"))
+                if (result.Succeeded)
                 {
-                    HttpContext.Session.SetString("userrole", "Deliverer");
+                    var user = await userManager.FindByNameAsync(model.Username);
+                    var roles = await userManager.GetRolesAsync(user);
+
+                    if (roles.Contains("Deliverer"))
+                    {
+                        HttpContext.Session.SetString("userrole", "Deliverer");
+                    }
+
+                    if (roles.Contains("User"))
+                    {
+                        HttpContext.Session.SetString("userrole", "User");
+                    }
+
+                    return RedirectToAction("Index", "Home");
                 }
 
-                if (roles.Contains("User"))
-                {
-                    HttpContext.Session.SetString("userrole", "User");
-                }
-
-                return RedirectToAction("Index", "Home");
+                ModelState.AddModelError(string.Empty, "Wrong credentials!");
+                return View();
             }
-
-            ModelState.AddModelError(string.Empty, "Wrong credentials!");
-            return View();
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home", new { ex.Message });
+            }
         }
         #endregion
 
@@ -113,8 +127,15 @@ namespace DeliveryServiceApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            try
+            {
+                await signInManager.SignOutAsync();
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Error", "Home", new { ex.Message });
+            }
         }
         #endregion
 
