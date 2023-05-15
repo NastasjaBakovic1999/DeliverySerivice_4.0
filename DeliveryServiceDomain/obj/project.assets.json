@@ -2524,11 +2524,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luka\\Desktop\\automatizacija-2\\DeliveryService_4.0\\DeliveryServiceDomain\\DeliveryServiceDomain.csproj",
+      "projectUniqueName": "C:\\Users\\Luka\\Desktop\\automatizacija razvoja softvera\\DeliveryService_4.0\\DeliveryServiceDomain\\DeliveryServiceDomain.csproj",
       "projectName": "DeliveryServiceDomain",
-      "projectPath": "C:\\Users\\Luka\\Desktop\\automatizacija-2\\DeliveryService_4.0\\DeliveryServiceDomain\\DeliveryServiceDomain.csproj",
+      "projectPath": "C:\\Users\\Luka\\Desktop\\automatizacija razvoja softvera\\DeliveryService_4.0\\DeliveryServiceDomain\\DeliveryServiceDomain.csproj",
       "packagesPath": "C:\\Users\\Luka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luka\\Desktop\\automatizacija-2\\DeliveryService_4.0\\DeliveryServiceDomain\\obj\\",
+      "outputPath": "C:\\Users\\Luka\\Desktop\\automatizacija razvoja softvera\\DeliveryService_4.0\\DeliveryServiceDomain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",

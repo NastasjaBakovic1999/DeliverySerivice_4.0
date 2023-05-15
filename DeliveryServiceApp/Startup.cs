@@ -4,8 +4,6 @@ using DeliveryServiceApp.Services.Interfaces;
 using DeliveryServiceData.UnitOfWork;
 using DeliveryServiceData.UnitOfWork.Implementation;
 using DeliveryServiceDomain;
-using DeliveryServiceServices.Implementation;
-using DeliveryServiceServices.Interfaces;
 using DeliveryServiceServices.Profiles;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -41,11 +39,9 @@ namespace DeliveryServiceApp
             services.AddScoped<IServiceDeliverer, ServiceDeliverer>();
             services.AddScoped<IServicePerson, ServicePerson>();
             services.AddScoped<IServiceShipment, ServiceShipment>();
-            services.AddScoped<IServiceShipmentStatusStatistic, ServiceShipmentStatusStatistic>();
             services.AddScoped<IServiceShipmentWeight, ServiceShipmentWeight>();
             services.AddScoped<IServiceStatus, ServiceStatus>();
             services.AddScoped<IServiceStatusShipment, ServiceStatusShipment>();
-            services.AddScoped<IServiceTimeline, ServiceTimeline>();
 
             services.AddControllersWithViews(
             ).AddJsonOptions(x => x.JsonSerializerOptions.MaxDepth = Int32.MaxValue);
@@ -72,8 +68,6 @@ namespace DeliveryServiceApp
                 mc.AddProfile(new ShipmentWeightProfile());
                 mc.AddProfile(new StatusProfile());
                 mc.AddProfile(new StatusShipmentProfile());
-                mc.AddProfile(new ShipmentStatusStatisticProfile());
-                mc.AddProfile(new TimelineProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();

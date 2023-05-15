@@ -22,8 +22,4 @@
     public record StatusDto(int StatusId, string StatusName);
 
     public record StatusShipmentDto(int StatusId, int ShipmentId, DateTime StatusTime);
-
-    public record TimelineDto(string StatusName, DateTime StatusTime);
-
-    public record ShipmentStatusStatisticDto(string StatusName, int NumberOfShipments);
 }

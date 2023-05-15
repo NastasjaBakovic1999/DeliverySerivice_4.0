@@ -614,9 +614,7 @@ namespace DeliveryServiceAppTests
                 new ShipmentProfile(),
                 new ShipmentWeightProfile(),
                 new StatusProfile(),
-                new StatusShipmentProfile(),
-                new ShipmentStatusStatisticProfile(),
-                new TimelineProfile()
+                new StatusShipmentProfile()
             };
             var configuration = new MapperConfiguration(cfg => cfg.AddProfiles(profiles));
             IMapper mapper = new Mapper(configuration); 

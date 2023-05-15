@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jUsTPb+WnmzLQhTXzLdrqcz9ww7A0nZCNZxjXnAuTBZvPmzN3GAL1bxkgmWme3mBRAiMYJREY6sP96sCmmWHvw==",
+  "dgSpecHash": "4GCTagbxP+LqRMieLY5waMx7c6Wp66+J3KhiskIQ4woWxUkkvoNxcfVLlY5uTlu3VlwIru8Wqqms4TUbR+qIzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Luka\\Desktop\\automatizacija-2\\DeliveryService_4.0\\DeliveryServiceAppTests\\DeliveryServiceAppTests.csproj",
+  "projectFilePath": "C:\\Users\\Luka\\Desktop\\automatizacija razvoja softvera\\DeliveryService_4.0\\DeliveryServiceAppTests\\DeliveryServiceAppTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Luka\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Luka\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",

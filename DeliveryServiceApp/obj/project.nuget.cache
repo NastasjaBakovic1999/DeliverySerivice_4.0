@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Oo5SE+F/4rvMY0RJlZC/hx3FqYUe0x0izgkN90TXMXDjEAYFcDATTjN/8Z6IP26QSIs4NPXtzzu2JqzWhNyOsg==",
+  "dgSpecHash": "BRFf2gXgK8Q8QBHy5Oc9e3/fcYlgqzY1f70iUbSJFWBq1xhhlK7fX9/CwSBgBlIave9UlGXQua/OQWjx0y1kMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Luka\\Desktop\\automatizacija-2\\DeliveryService_4.0\\DeliveryServiceApp\\DeliveryServiceApp.csproj",
+  "projectFilePath": "C:\\Users\\Luka\\Desktop\\automatizacija razvoja softvera\\DeliveryService_4.0\\DeliveryServiceApp\\DeliveryServiceApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Luka\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Luka\\.nuget\\packages\\googleanalytics.googlecharts.net\\1.0.1\\googleanalytics.googlecharts.net.1.0.1.nupkg.sha512",
